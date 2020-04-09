@@ -3,7 +3,7 @@
 ## 说明
 
 为了更方便的写 vue demo ，减少每次建立写 demo 在建立路由引入等环节花费的时间
-现在只要在 `@/view/main-page` 中建立组件,即可自动读取，并生成按钮，可跳转到组件页面。
+现在只要在 `@/view/main-page` 中建立组件,即可自动读取，并生成按钮，可展示对应组件的页面。
 
 ## 代码风格配置
 
@@ -13,13 +13,12 @@
 npm install
 ```
 
-在 `setting.json` 中配置代码风格，需要安装 `eslint`、`Prettier - Code formatter`、`Vetur`,等插件
+在 `setting.json` 中配置代码风格，需要安装 `eslint`、`Prettier - Code formatter`、`Vetur`等插件
 
 ```
 {
-  // 强制单引号
+ {
   "prettier.singleQuote": true,
-  // s
   "editor.fontSize": 16,
   "editor.tabSize": 2,
   "editor.formatOnSave": true,
@@ -35,37 +34,18 @@ npm install
   "vetur.validation.template": false,
   "vetur.format.defaultFormatter.html": "js-beautify-html",
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
-  "prettier.eslintIntegration": true,
   "vetur.format.defaultFormatterOptions": {
     "js-beautify-html": {
       "wrap_attributes": "force-aligned"
     },
     "prettier": {
-      // 格式化不加分号
       "semi": false,
-      // 格式化为单引号
       "singleQuote": true
     }
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
-  // "eslint.autoFixOnSave": true,
-  // "eslint.validate": [
-  //   "javascript",
-  //   {
-  //     "language": "vue",
-  //     "autoFix": true
-  //   },
-  //   {
-  //     "language": "js",
-  //     "autoFix": true
-  //   },
-  //   {
-  //     "language": "html",
-  //     "autoFix": true
-  //   }
-  // ],
   "explorer.confirmDelete": false,
   "editor.suggestSelection": "first",
   "window.zoomLevel": 0,
