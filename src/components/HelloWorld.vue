@@ -104,11 +104,17 @@
 
 <script>
 export default {
-  name: "HelloWorld",
+  name: 'HelloWorld',
   props: {
     msg: String
+  },
+  methods: {
+    aa() {},
+    bb() {
+      console.log('2 :', 2)
+    }
   }
-};
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
