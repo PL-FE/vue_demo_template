@@ -1,7 +1,6 @@
 <template>
   <div class="container">
-    ScollView
-    <ScollView></ScollView>
+    Bpms-js
   </div>
 </template>
 

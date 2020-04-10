@@ -1,6 +1,6 @@
 <template>
   <div>
-    ScollView
+    componts: ScollView
   </div>
 </template>
 

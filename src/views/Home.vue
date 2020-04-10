@@ -1,31 +1,36 @@
 <template>
   <div class="home">
+    <h2>请选择需要展示的页面：</h2>
     <el-button type="primise"
                :key="comp"
-               v-for="comp in compNames">{{comp}}
+               @click="handleClick(comp)"
+               v-for="comp in compNames">{{ comp }}
     </el-button>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
+  data () {
     return {
       compNames: []
     }
   },
-  beforeMount() {
-    let compNames = []
-    const requireComponents = require.context('./', false, /\.vue/)
+  beforeMount () {
+    const compNames = []
+    const requireComponents = require.context('./main-page/', false, /\.vue/)
     requireComponents.keys().forEach(fileName => {
-      const reqCom = requireComponents(fileName)
-      // 截取路径作为组件名
       const compName = fileName.replace(/\.\//, '').replace(/\.vue/, '')
       if (compName !== 'Home') {
         compNames.push(compName)
       }
     })
     this.compNames = compNames
+  },
+  methods: {
+    handleClick (comp) {
+      this.$router.push({ name: 'page', query: { name: comp } })
+    }
   }
 }
 </script>

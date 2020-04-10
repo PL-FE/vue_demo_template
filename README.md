@@ -17,7 +17,6 @@ npm install
 
 ```
 {
- {
   "prettier.singleQuote": true,
   "editor.fontSize": 16,
   "editor.tabSize": 2,
@@ -55,6 +54,8 @@ npm install
   "[vue]": {
     "editor.defaultFormatter": "octref.vetur"
   },
-  "prettier.semi": false
+  "prettier.semi": false,
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "files.insertFinalNewline": true
 }
 ```

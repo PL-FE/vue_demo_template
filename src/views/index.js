@@ -1,4 +1,4 @@
-const requireComponents = require.context("./", false, /\.vue/);
+const requireComponents = require.context("./main-page/", false, /\.vue/);
 
 export default function install(Vue) {
     requireComponents.keys().forEach(fileName => {
