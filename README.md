@@ -5,6 +5,33 @@
 为了更方便的写 vue demo ，减少每次建立写 demo 在建立路由引入等环节花费的时间
 现在只要在 `@/view/main-page` 中建立组件,即可自动读取，并生成按钮，可展示对应组件的页面。
 
+如果写 demo 有公共组件输出，则会放在 `@/components` 文件夹下,欢迎 PR。
+
+## 组件
+
+<details>
+<summary>滚动视图</summary>
+
+- [x] [ScollView](https://github.com/Samlldevel/vue_demo_template/blob/master/src/components/ScollView.vue)
+
+![ScollView](./src/assets/scollView.gif)
+</details>
+
+<details>
+<summary>Bpmn.js 自定义渲染</summary>
+
+TODO: 附上官方例子：[Examples](https://github.com/bpmn-io/bpmn-js-examples)
+
+- [ ] [Bpmn.js]()
+
+![Screencast](./src/assets/screencast.gif)
+
+</details>
+
+
+
+
+
 ## 代码风格配置
 
 使用前，老规矩
