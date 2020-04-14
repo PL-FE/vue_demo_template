@@ -6,21 +6,21 @@ import Page from '../views/Page.vue'
 Vue.use(VueRouter)
 
 const routes = [{
-        path: '/',
-        name: 'Home',
-        component: Home
-    },
-    {
-        path: '/page',
-        name: 'page',
-        component: Page
-    }
+  path: '/',
+  name: 'Home',
+  component: Home
+},
+{
+  path: '/page',
+  name: 'page',
+  component: Page
+}
 ]
 
 const router = new VueRouter({
-    mode: 'history',
-    base: process.env.BASE_URL,
-    routes
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
 })
 
 export default router
