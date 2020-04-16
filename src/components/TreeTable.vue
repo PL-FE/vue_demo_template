@@ -1,18 +1,16 @@
 <template>
   <el-table ref="multipleTable"
             :data="formatData"
+            @select="select"
             border
             :row-class-name="showRow"
             v-bind="$attrs">
     <el-table-column type="selection"></el-table-column>
     <el-table-column type="index"></el-table-column>
-    </el-table-column>
-
     <el-table-column v-for="(column, index) in columns"
                      :key="column.value"
                      :label="column.text"
                      :width="column.width">
-
       <template slot-scope="{row, $index}">
         <template v-if="column.isCustom">
           <slot :name="`col-${column.value}`"
@@ -45,7 +43,8 @@ export default {
     return {
       chooseson: true, //全选
       key: true, //单个点击直到全部选中
-      odd: [0]
+      odd: [0],
+      pTemp: []
     };
   },
   props: {
@@ -103,6 +102,48 @@ export default {
     // 图标显示
     iconShow (index, record) {
       return index === 0 && record.child && record.child.length > 0;
+    },
+    select (selection, row) {
+      let isSelect = selection.includes(row)
+      if (row.child) {
+        this.deepFunc(row, 'child', isSelect, this.$refs.multipleTable.toggleRowSelection)
+      }
+      if (row.parent) {
+        this.treeToArray(row, 'parent', 'init')
+        let allF = this.pTemp
+        allF.forEach(it => {
+          isSelect = it.child.every(it => selection.includes(it))
+          this.$refs.multipleTable.toggleRowSelection(it, isSelect)
+        })
+      }
+    },
+    treeToArray (nodes, key, p) {
+      if (p) {
+        this.pTemp = []
+      }
+      if (nodes[key]) {
+        this.pTemp.push(nodes[key])
+        this.treeToArray(nodes[key], key)
+      }
+    },
+
+    // 递归勾选或者取消
+    deepFunc (data, key, isSelect, func) {
+      if (data[key]) {
+        if (data[key].length) {
+          data[key].forEach(c => {
+            func(c, isSelect)
+            if (c[key]) {
+              this.deepFunc(c, key, isSelect, func)
+            }
+          })
+        } else {
+          func(data[key], isSelect)
+          if (data[key][key]) {
+            this.deepFunc(data[key], key, isSelect, func)
+          }
+        }
+      }
     }
   }
 };
