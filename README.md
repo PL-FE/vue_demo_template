@@ -26,7 +26,7 @@
 <details>
 <summary>树状表格</summary>
 
-[ScollView](https://github.com/Samlldevel/vue_demo_template/blob/master/src/components/TreeTable.vue)
+[TreeTable](https://github.com/Samlldevel/vue_demo_template/blob/master/src/components/TreeTable.vue)
 
 基于 element-ui@2.5.4 以下，[高版本](https://element.eleme.cn/#/zh-CN/component/table)已支持`树形数据`
 
@@ -36,7 +36,7 @@
 - [x] 适应树形图的斑马纹
 - [x] 复选逻辑，$refs.table.selection 可获取勾选数据
 
-> 注：源码来源`github`，基于他人源码再加工，作者信息保留在源码中
+> 源码来源`github`，基于他人源码再加工，作者信息保留在源码中
 
 </details>
 
