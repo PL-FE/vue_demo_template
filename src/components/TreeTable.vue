@@ -43,8 +43,9 @@ export default {
     return {
       chooseson: true, //全选
       key: true, //单个点击直到全部选中
-      odd: [0],
-      pTemp: []
+      odd: [0], // 计数奇偶，显示斑马纹背景
+      pTemp: [], // 临时存储父节点
+      cTemp: [] // 临时存储子节点
     };
   },
   props: {
@@ -105,44 +106,44 @@ export default {
     },
     select (selection, row) {
       let isSelect = selection.includes(row)
+      row.isSelect = isSelect
+      const func = this.$refs.multipleTable.toggleRowSelection
       if (row.child) {
-        this.deepFunc(row, 'child', isSelect, this.$refs.multipleTable.toggleRowSelection)
+        this.chTreeToArray(row, 'init')
+        this.cTemp.map(it => {
+          it.isSelect = isSelect
+          func(it, isSelect)
+        })
       }
       if (row.parent) {
-        this.treeToArray(row, 'parent', 'init')
+        this.faTreeToArray(row, 'init')
         let allF = this.pTemp
         allF.forEach(it => {
-          isSelect = it.child.every(it => selection.includes(it))
-          this.$refs.multipleTable.toggleRowSelection(it, isSelect)
+          this.chTreeToArray(it, 'init')
+          let res = this.cTemp.every(it => it.isSelect)
+          it.isSelect = res
+          func(it, res)
         })
       }
     },
-    treeToArray (nodes, key, p) {
+    faTreeToArray (nodes, p) {
       if (p) {
         this.pTemp = []
       }
-      if (nodes[key]) {
-        this.pTemp.push(nodes[key])
-        this.treeToArray(nodes[key], key)
+      if (nodes.parent) {
+        this.pTemp.push(nodes.parent)
+        this.faTreeToArray(nodes.parent)
       }
     },
-
-    // 递归勾选或者取消
-    deepFunc (data, key, isSelect, func) {
-      if (data[key]) {
-        if (data[key].length) {
-          data[key].forEach(c => {
-            func(c, isSelect)
-            if (c[key]) {
-              this.deepFunc(c, key, isSelect, func)
-            }
-          })
-        } else {
-          func(data[key], isSelect)
-          if (data[key][key]) {
-            this.deepFunc(data[key], key, isSelect, func)
-          }
-        }
+    chTreeToArray (nodes, p) {
+      if (p) {
+        this.cTemp = []
+      }
+      if (nodes.child) {
+        nodes.child.forEach(it => {
+          this.cTemp.push(it)
+          this.chTreeToArray(it)
+        })
       }
     }
   }
