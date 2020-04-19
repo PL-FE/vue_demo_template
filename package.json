@@ -9,6 +9,10 @@
   },
   "dependencies": {
     "@vue/eslint-config-standard": "^5.1.2",
+    "bpmn-js": "^6.4.2",
+    "bpmn-js-nyan": "^2.1.0",
+    "bpmn-js-properties-panel": "^0.33.2",
+    "camunda-bpmn-moddle": "^4.4.0",
     "core-js": "^3.6.4",
     "element-ui": "^2.5.4",
     "vue": "^2.6.11",
