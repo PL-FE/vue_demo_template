@@ -36,7 +36,7 @@
 </template>
  
 <script>
-import treeToArray from "./eval.js";
+import treeToArray from "../utils/eval.js";
 export default {
   name: "TreeTable",
   data () {

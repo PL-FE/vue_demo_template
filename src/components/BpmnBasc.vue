@@ -10,10 +10,10 @@
 import BpmnModeler from 'bpmn-js/lib/Modeler'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 
-import resizeAllModule from 'bpmn-js-nyan/lib/resize-all-rules';
-import colorPickerModule from 'bpmn-js-nyan/lib/color-picker';
-import nyanDrawModule from 'bpmn-js-nyan/lib/nyan/draw';
-import nyanPaletteModule from 'bpmn-js-nyan/lib/nyan/palette';
+import resizeAllModule from './lib/resize-all-rules';
+import colorPickerModule from './lib/color-picker';
+import nyanDrawModule from './lib/nyan/draw';
+import nyanPaletteModule from './lib/nyan/palette';
 import {
   xmlStr
 } from '../utils/xmlStr' // 这里是直接引用了xml字符串
@@ -48,7 +48,7 @@ export default {
         },
         additionalModules: [
           // 左边工具栏以及节点
-          // propertiesProviderModule
+          propertiesProviderModule,
 
           resizeAllModule,
           colorPickerModule,
