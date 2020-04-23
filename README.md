@@ -1,4 +1,4 @@
-# toutiao-publish-admin
+# vue_demo_template
 
 ## Project setup
 ```
