@@ -1,17 +1,16 @@
-const path = require('path')
 module.exports = {
-  publicPath: './',
-  configureWebpack: (config) => {
-    Object.assign(config, {
-      // 开发生产共同配置
-      resolve: {
-        extensions: ['.js', '.vue', '.json'],//请求本地json
-        alias: {
-          '@': path.resolve(__dirname, './src'),
-          '@c': path.resolve(__dirname, './src/components'),
-          '@p': path.resolve(__dirname, './src/pages')
-        } // 别名配置
-      }
-    })
-  }
+  publicPath: process.env.NODE_ENV === 'production' ? './' : './',
+  /* 生产环境构建文件的目录 defalut: dist */
+
+  outputDir: 'dist',
+
+  /* 放置生成的静态文件目录（js css img） */
+
+  assetsDir: 'static',
+
+  /* 指定生成的index.html 输出路径 相对 default: index.html */
+
+  indexPath: 'index.html',
+
+  lintOnSave: process.env.NODE_ENV === 'production'
 }

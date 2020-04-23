@@ -1,30 +1,28 @@
-import inherits from 'inherits';
+import inherits from 'inherits'
 
-import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer';
+import BaseRenderer from 'diagram-js/lib/draw/BaseRenderer'
 
 import {
   is
-} from 'bpmn-js/lib/util/ModelUtil';
+} from 'bpmn-js/lib/util/ModelUtil'
 
-import Cat from '../cat';
+import Cat from '../cat'
 
 import {
   append as svgAppend,
   create as svgCreate
-} from 'tiny-svg';
+} from 'tiny-svg'
 
+export default function NyanRender (eventBus) {
+  BaseRenderer.call(this, eventBus, 1500)
 
-export default function NyanRender(eventBus) {
-  BaseRenderer.call(this, eventBus, 1500);
+  this.canRender = function (element) {
+    return is(element, 'bpmn:ServiceTask')
+  }
 
-  this.canRender = function(element) {
-    return is(element, 'bpmn:ServiceTask');
-  };
-
-
-  this.drawShape = function(parent, shape) {
-    console.log('shape :', shape);
-    var url = Cat.dataURL;
+  this.drawShape = function (parent, shape) {
+    console.log('shape :', shape)
+    var url = Cat.dataURL
 
     var catGfx = svgCreate('image', {
       x: 0,
@@ -32,13 +30,13 @@ export default function NyanRender(eventBus) {
       width: shape.width,
       height: shape.height,
       href: url
-    });
+    })
 
-    svgAppend(parent, catGfx);
-    return catGfx;
-  };
+    svgAppend(parent, catGfx)
+    return catGfx
+  }
 }
 
-inherits(NyanRender, BaseRenderer);
+inherits(NyanRender, BaseRenderer)
 
-NyanRender.$inject = [ 'eventBus' ];
+NyanRender.$inject = ['eventBus']

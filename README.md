@@ -2,10 +2,10 @@
 
 ## 说明
 
-为了更方便的 ~~(懒 👀)~~ 写 vue demo ，减少每次建立写 demo 在建立路由引入等环节花费的时间
+为了更方便的写 vue demo ，减少每次建立写 demo 在建立路由引入等环节花费的时间
 现在只要在 `@/view/main-page` 中建立组件,即可自动读取，并生成按钮，可展示对应组件的页面。
 
-如果写 demo 有公共组件输出，则会放在 `@/components` 文件夹下,欢迎 PR。🙌
+如果写 demo 有公共组件输出，则会在 `@/components` 文件夹下.
 
 > 较干净的 demo 模板，👉 tag：[vdt_0.0.1](https://github.com/Samlldevel/vue_demo_template/tree/vdt_0.0.1)
 
@@ -34,7 +34,7 @@
 - [x] 树形结构数据
 - [x] 自定义插槽
 - [x] 适应树形图的斑马纹
-- [x] 复选逻辑，$refs.table.selection 可获取勾选数据
+- [x] 复选逻辑，\$refs.table.selection 可获取勾选数据
 
 > 源码来源`github`，基于他人源码再加工，作者信息保留在源码中
 

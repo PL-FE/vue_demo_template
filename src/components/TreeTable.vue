@@ -34,19 +34,19 @@
     <slot />
   </el-table>
 </template>
- 
+
 <script>
-import treeToArray from "../utils/eval.js";
+import treeToArray from '@/utils/eval.js'
 export default {
-  name: "TreeTable",
+  name: 'TreeTable',
   data () {
     return {
-      chooseson: true, //全选
-      key: true, //单个点击直到全部选中
+      chooseson: true, // 全选
+      key: true, // 单个点击直到全部选中
       odd: [0], // 计数奇偶，显示斑马纹背景
       pTemp: [], // 临时存储父节点
       cTemp: [] // 临时存储子节点
-    };
+    }
   },
   props: {
     data: {
@@ -67,45 +67,45 @@ export default {
   computed: {
     // 格式化数据源
     formatData () {
-      let tmp;
+      let tmp
       if (!Array.isArray(this.data)) {
-        tmp = [this.data];
+        tmp = [this.data]
       } else {
-        tmp = this.data;
+        tmp = this.data
       }
-      const func = this.evalFunc || treeToArray;
+      const func = this.evalFunc || treeToArray
       const args = this.evalArgs
         ? [tmp, this.expandAll].concat(this.evalArgs)
-        : [tmp, this.expandAll];
-      return func.apply(null, args);
+        : [tmp, this.expandAll]
+      return func.apply(null, args)
     }
   },
   methods: {
     showRow ({ row, rowIndex }) {
       const show = row.parent
         ? row.parent._expanded && row.parent._show
-        : true;
-      row._show = show;
+        : true
+      row._show = show
       if (show) {
         this.odd[0] = this.odd[0] + 1
       }
-      let row2 = this.odd[0] % 2 ? '' : 'highlight_row'
+      const row2 = this.odd[0] % 2 ? '' : 'highlight_row'
       if (rowIndex === this.formatData.length - 1) this.odd[0] = 0
       return show
         ? row2
-        : 'cdisplay';
+        : 'cdisplay'
     },
     // 切换下级是否展开
     toggleExpanded (trIndex) {
-      const record = this.formatData[trIndex];
-      record._expanded = !record._expanded;
+      const record = this.formatData[trIndex]
+      record._expanded = !record._expanded
     },
     // 图标显示
     iconShow (index, record) {
-      return index === 0 && record.child && record.child.length > 0;
+      return index === 0 && record.child && record.child.length > 0
     },
     select (selection, row) {
-      let isSelect = selection.includes(row)
+      const isSelect = selection.includes(row)
       row.isSelect = isSelect
       const func = this.$refs.multipleTable.toggleRowSelection
       if (row.child) {
@@ -117,10 +117,10 @@ export default {
       }
       if (row.parent) {
         this.faTreeToArray(row, 'init')
-        let allF = this.pTemp
+        const allF = this.pTemp
         allF.forEach(it => {
           this.chTreeToArray(it, 'init')
-          let res = this.cTemp.every(it => it.isSelect)
+          const res = this.cTemp.every(it => it.isSelect)
           it.isSelect = res
           func(it, res)
         })
@@ -147,9 +147,9 @@ export default {
       }
     }
   }
-};
+}
 </script>
- 
+
 <style lang="less" scoped>
 .ms-tree-space {
   position: relative;

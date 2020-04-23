@@ -1,6 +1,6 @@
-import NyanRenderer from './NyanRenderer';
+import NyanRenderer from './NyanRenderer'
 
 export default {
-  __init__: [ 'nyanRenderer' ],
-  nyanRenderer: [ 'type', NyanRenderer ]
-};
+  __init__: ['nyanRenderer'],
+  nyanRenderer: ['type', NyanRenderer]
+}

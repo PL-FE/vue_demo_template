@@ -5,15 +5,15 @@
   </div>
 </template>
 
- <script>
+<script>
 // 引入相关的依赖
 import BpmnModeler from 'bpmn-js/lib/Modeler'
 import propertiesProviderModule from 'bpmn-js-properties-panel/lib/provider/camunda'
 
-import resizeAllModule from './lib/resize-all-rules';
-import colorPickerModule from './lib/color-picker';
-import nyanDrawModule from './lib/nyan/draw';
-import nyanPaletteModule from './lib/nyan/palette';
+import resizeAllModule from './lib/resize-all-rules'
+import colorPickerModule from './lib/color-picker'
+import nyanDrawModule from './lib/nyan/draw'
+import nyanPaletteModule from './lib/nyan/palette'
 import {
   xmlStr
 } from '../utils/xmlStr' // 这里是直接引用了xml字符串
@@ -42,7 +42,7 @@ export default {
       this.bpmnModeler = new BpmnModeler({
         container: canvas,
 
-        //添加控制板
+        // 添加控制板
         propertiesPanel: {
           parent: '#js-properties-panel'
         },

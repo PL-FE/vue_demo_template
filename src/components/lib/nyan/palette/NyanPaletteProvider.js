@@ -1,34 +1,31 @@
-import Cat from '../cat';
-
+import Cat from '../cat'
 
 /**
  * A provider for quick service task production
  */
-export default function NyanPaletteProvider(palette, create, elementFactory) {
+export default function NyanPaletteProvider (palette, create, elementFactory) {
+  this._create = create
+  this._elementFactory = elementFactory
 
-  this._create = create;
-  this._elementFactory = elementFactory;
-
-  palette.registerProvider(this);
+  palette.registerProvider(this)
 }
 
 NyanPaletteProvider.$inject = [
   'palette',
   'create',
   'elementFactory'
-];
+]
 
-NyanPaletteProvider.prototype.getPaletteEntries = function() {
+NyanPaletteProvider.prototype.getPaletteEntries = function () {
+  var elementFactory = this._elementFactory
+  var create = this._create
 
-  var elementFactory = this._elementFactory,
-      create = this._create;
-
-  function startCreate(event) {
+  function startCreate (event) {
     var serviceTaskShape = elementFactory.create(
       'shape', { type: 'bpmn:ServiceTask' }
-    );
+    )
 
-    create.start(event, serviceTaskShape);
+    create.start(event, serviceTaskShape)
   }
 
   return {
@@ -50,5 +47,5 @@ NyanPaletteProvider.prototype.getPaletteEntries = function() {
         click: startCreate
       }
     }
-  };
-};
+  }
+}

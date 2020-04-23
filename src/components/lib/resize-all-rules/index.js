@@ -1,6 +1,6 @@
-import ResizeAllRules from './ResizeAllRules';
+import ResizeAllRules from './ResizeAllRules'
 
 export default {
-  __init__: [ 'resizeAllRules' ],
-  resizeAllRules: [ 'type', ResizeAllRules ]
-};
+  __init__: ['resizeAllRules'],
+  resizeAllRules: ['type', ResizeAllRules]
+}

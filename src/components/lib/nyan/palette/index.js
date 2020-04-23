@@ -1,6 +1,6 @@
-import NyanPaletteProvider from './NyanPaletteProvider';
+import NyanPaletteProvider from './NyanPaletteProvider'
 
 export default {
-  __init__: [ 'nyanPaletteProvider' ],
-  nyanPaletteProvider: [ 'type', NyanPaletteProvider ]
-};
+  __init__: ['nyanPaletteProvider'],
+  nyanPaletteProvider: ['type', NyanPaletteProvider]
+}
