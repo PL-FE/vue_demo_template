@@ -7,7 +7,7 @@
 
 如果写 demo 有公共组件输出，则会在 `@/components` 文件夹下.
 
-> 较干净的 demo 模板，👉 tag：[vdt_0.0.1](https://github.com/Samlldevel/vue_demo_template/tree/vdt_0.0.1)
+> 较干净的 demo 模板，👉 [干净的模板](https://github.com/Samlldevel/vue_demo_template/tree/init)
 
 ## 组件
 
