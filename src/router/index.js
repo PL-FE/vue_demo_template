@@ -1,25 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Page from '../views/Page.vue'
+import views from '@/views/index.vue'
 
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  name: 'Home',
-  component: Home
-},
-{
-  path: '/page',
-  name: 'page',
-  component: Page
-}
+const routes = [
+  {
+    path: '/',
+    name: 'views',
+    component: views
+  }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
   routes
 })
 
