@@ -8,6 +8,9 @@
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
+    "@svgdotjs/svg.draggable.js": "^3.0.2",
+    "@svgdotjs/svg.js": "^3.1.1",
+    "@svgdotjs/svg.panzoom.js": "^2.1.2",
     "bpmn-js": "^6.4.2",
     "bpmn-js-nyan": "^2.1.0",
     "bpmn-js-properties-panel": "^0.33.2",
